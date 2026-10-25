@@ -5,38 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>web</title>
-    <script type="module" crossorigin src="/assets/index-SO9V6ls_.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BXf53TFC.css">
   </head>
   <body>
     <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
   </body>
-  <style>
-  /* 1. 强行穿透混淆限制，把整个薪资输入区域的包裹父容器设为弹性盒子并撑满 */
-  div:has(> input[type="number"]):has(> select) {
-    display: flex !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    gap: 8px !important; /* 让输入框和下拉框之间有 8 像素的间距 */
-  }
-
-  /* 2. 强行分配左边的【数字输入框】占据 75% 的大宽度，使其足够长 */
-  input[type="number"], 
-  input[placeholder*="Salary"],
-  input[name*="salary"] {
-    flex: 3 !important; /* 占据主要空间 */
-    width: 75% !important;
-    min-width: 180px !important;
-    display: block !important;
-  }
-
-  /* 3. 强行限制右边的【货币选择下拉框】只占 25% 的合理宽度 */
-  select {
-    flex: 1 !important; /* 占据次要空间 */
-    width: 25% !important;
-    min-width: 100px !important;
-  }
-</style>
-
-
 </html>

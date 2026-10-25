@@ -1,0 +1,46 @@
+// Spanish (Español)
+export default {
+  app: { name: 'Asistente Legal IA', tagline: 'Conoce tus derechos. Conoce tu indemnización.', heroSub: 'Análisis de derecho laboral con IA. Cálculo instantáneo de indemnización + generación de documentos legales.' },
+  nav: { home: 'Inicio', analysis: 'Mi Caso', documents: 'Documentos', contact: 'Contacto', language: 'Idioma' },
+  common: { loading: 'Cargando...', submit: 'Enviar', cancel: 'Cancelar', save: 'Guardar', back: 'Volver', next: 'Siguiente', copy: 'Copiar', copied: '¡Copiado!', download: 'Descargar', print: 'Imprimir', close: 'Cerrar', free: 'Gratis', start: 'Análisis Gratuito', getStarted: 'Empezar', login: 'Iniciar sesión', loginGoogle: 'Continuar con Google', loginEmail: 'Continuar con email' },
+  home: {
+    title: '¿Enfrentas un conflicto laboral?',
+    sub: 'Te ayudamos a calcular tu indemnización, redactar documentos legales y conocer tus derechos — en minutos.',
+    feature1Title: 'Análisis Instantáneo', feature1Desc: 'Describe tu situación en lenguaje sencillo. La IA identifica el tipo de infracción y las leyes aplicables.',
+    feature2Title: 'Indemnización Precisa', feature2Desc: 'Cálculo automático basado en salario, antigüedad y legislación laboral local.',
+    feature3Title: 'Documentos Listos', feature3Desc: 'Descarga cartas de reclamación y demandas laborales con formato profesional.',
+    stat1: 'Casos Analizados', stat1Val: '28.491+', stat2: 'Tiempo Promedio', stat2Val: '45 segundos', stat3: 'Países', stat3Val: '30+',
+    countriesTitle: 'Operamos con derecho laboral en',
+    howItWorks: 'Cómo funciona', step1Title: 'Cuéntanos tu caso', step1Desc: 'Completa un formulario simple. Sube documentos si los tienes.',
+    step2Title: 'La IA analiza', step2Desc: 'Nuestro motor cruza tu caso con los estatutos laborales locales.',
+    step3Title: 'Obtén tus resultados', step3Desc: 'Estimación de indemnización, probabilidad de éxito y documentos listos.',
+    testimonials: 'Lo que dicen las personas',
+    testimonial1: 'La IA calculó mi indemnización por despido en minutos. Me ahorró cientos de euros en abogado.', testimonial1From: 'Sara M., Reino Unido — despido improcedente',
+    testimonial2: 'Pensaba que mi caso era débil hasta ver el desglose de probabilidad. Ahora tengo ventaja.', testimonial2From: 'Diego R., España — salarios impagados',
+    testimonial3: 'Generó una carta de reclamación profesional que envié el mismo día. La empresa me pagó en 3 días.', testimonial3From: 'Anna K., Alemania — 6 meses de atrasos'
+  },
+  form: {
+    title: 'Detalles de tu caso',
+    sub: 'Cuanto más preciso, mejor el análisis. Todos los datos son privados.',
+    companyName: 'Nombre de la empresa', companyNamePh: 'ej. Empresa S.L.',
+    userName: 'Tu nombre (opcional)', hireDate: 'Fecha de contratación',
+    endDate: 'Último día / Fecha de salida prevista', endDatePh: 'Déjalo en blanco si sigues trabajando',
+    salary: 'Salario Bruto Mensual', salaryPh: 'Antes de impuestos, en moneda local',
+    country: 'Tu país', countryPh: 'Selecciona tu país (determina las leyes aplicables)',
+    description: '¿Qué pasó? Cuéntalo con tus palabras.', descriptionPh: 'ej. "La empresa me despidió sin preaviso y no me ha pagado en 3 meses..."',
+    quickTags: 'Etiquetas rápidas', unpaidWages: 'Salarios impagados', unfairDismissal: 'Despido improcedente', noContract: 'Sin contrato escrito', noPension: 'Sin cotizar', demotion: 'Descenso / recorte salarial', forcedOvertime: 'Horas extra obligatorias', redundancy: 'Despido colectivo / ERE',
+    uploadDocs: 'Sube documentos (opcional)', uploadDocsTip: 'Nóminas, contrato, carta de despido — la IA extraerá los campos clave', uploadHere: 'Haz clic o arrastra archivos', supported: 'PDF, JPG, PNG hasta 20MB',
+    analyzing: 'Reconociendo con IA...', done: '✓ Reconocido', failed: 'Error de reconocimiento',
+    ocrTitle: 'IA extrajo de los documentos:', applyToForm: 'Aplicar al formulario',
+    evidence: '¿Tienes estas pruebas?', contract: 'Contrato de trabajo', payslip: 'Nóminas / bancos', dismissalLetter: 'Carta de despido', workRecords: 'Registros de asistencia', chatRecords: 'Mensajes de chat', witnesses: 'Testigos compañeros',
+    submit: '🚀 Iniciar Análisis IA Gratuito', submitAgree: 'Al enviar aceptas los Términos. Toda la información está cifrada.'
+  },
+  analyzing: { title: 'Analizando tu caso...', sub: 'Cruzando con estatutos laborales', step1: 'Identificando tipos de infracción', step2: 'Calculando antigüedad e indemnización', step3: 'Evaluando pruebas', step4: 'Preparando citas legales' },
+  result: { winTitle: 'Probabilidad de Éxito', win80plus: 'Caso sólido — pruebas convincentes', win50to80: 'Caso razonable — recolecta más pruebas', winBelow50: 'Caso débil — recomendamos añadir pruebas', violations: 'Infracciones Detectadas', compensation: 'Estimación de Indemnización', tenure: 'Antigüedad Total', months: 'meses', scenarios: 'Desglose', totalLabel: 'Total Estimado', legalBasis: 'Fundamento Legal', aiAdvice: 'Asesoría Legal IA', evidenceTip: 'Pruebas para fortalecer tu caso:', arbitration: 'Desglose de Reclamaciones', arbitrationSub: 'Items de reclamación listos para presentar', downloadPdf: '📥 Descargar Paquete PDF Gratis', downloadPdfTip: 'Análisis de éxito + carta de reclamación + guía de presentación', highAmount: '¿Monto elevado? Habla con un abogado real', contactLawyer: 'Consulta gratuita →' },
+  pay: { choosePlan: 'Elige tu plan', planBasic: 'Informe Básico', planBasicDesc: 'Probabilidad de éxito + desglose de indemnización', planStandard: 'Paquete Completo', planStandardDesc: 'Todo lo de Básico + carta PDF + guía de presentación', planPremium: 'Premium', planPremiumDesc: 'Todo lo Completo + argumentos optimizados + 1 Q&A con abogado', oneTime: 'pago único', payNow: 'Pagar con PayPal', processing: 'Procesando pago...', demoMode: 'Modo demo — haz clic en "Pagar" para desbloquear instantáneamente' },
+  document: { title: 'Tus Documentos Legales', winReport: 'Informe de Éxito', demandLetter: 'Carta de Reclamación', tribunalFiling: 'Guía de Presentación', print: 'Imprimir', download: 'Descargar PDF', sendEmail: 'Enviar por email', backToResult: '← Volver a resultados', emailSent: '✓ Enviado a tu bandeja', readyToFile: 'Estos documentos están listos para presentar en el juzgado de lo social.' },
+  lawyer: { title: 'Habla con un Abogado Real', sub: 'Casos de más de 30k€ suelen beneficiarse de representación legal', email: '📧 Para ayuda, escribe a', emailTip: 'Haz clic para copiar — respondemos en 24 horas', contact: 'Contacto', emailUs: 'Envíanos un email', emailValue: 'support@legal-ai.example', note: 'Incluye nombre de empresa, fechas, salario y qué pasó para una revisión más rápida.' },
+  language: { title: 'Selecciona tu Idioma', subtitle: 'Todo el análisis legal se adapta a las leyes laborales de tu país', english: 'Inglés', spanish: 'Español', french: 'Francés', german: 'Alemán', italian: 'Italiano', chinese: 'Chino', current: 'Actualmente', saved: '✓ Idioma guardado' },
+  footer: { tagline: 'Asistente Legal IA no sustituye a un abogado colegiado.', privacy: 'Política de Privacidad', terms: 'Términos de Servicio', contact: 'Contacto', refund: 'Política de Reembolso' },
+  errors: { network: 'Error de red. Revisa tu conexión.', server: 'Servidor no disponible. Inténtalo en un momento.', paypal: 'PayPal devolvió un error. Prueba otro método.', empty: 'Completa los campos requeridos.', invalidEmail: 'Email inválido.', invalidSalary: 'Salario debe ser mayor que cero.', noAnalysis: 'No hay análisis. Envía tu caso primero.' }
+}
