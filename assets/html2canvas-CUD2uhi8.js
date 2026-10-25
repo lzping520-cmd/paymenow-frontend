@@ -1,0 +1,1 @@
+import{n as e}from"./Document-DyJVnZyk.js";export default e();
