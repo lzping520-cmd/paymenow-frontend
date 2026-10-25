@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-3xl mx-auto px-4 py-10">
+  <div class="max-w-4xl mx-auto px-4 py-10">
     <h1 class="section-title text-3xl">{{ t('form.title') }}</h1>
     <p class="text-gray-500 mb-8">{{ t('form.sub') }}</p>
 
@@ -35,7 +35,7 @@
           <label class="block text-sm font-semibold text-gray-700 mb-1">{{ t('form.salary') }} *</label>
           <div class="flex gap-2">
             <input type="number" v-model.number="form.monthlySalary" required min="0" step="any" class="input-field flex-1" :placeholder="t('form.salaryPh')" />
-            <select v-model="form.currency" class="input-field w-28">
+            <select v-model="form.currency" class="input-field w-36 text-base">
               <option value="EUR">€ EUR</option>
               <option value="USD">$ USD</option>
               <option value="GBP">£ GBP</option>
