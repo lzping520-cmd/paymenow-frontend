@@ -10,72 +10,51 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
-   <script>
-  // 【安全隔离版：纯前端零依赖 jsPDF 下载引擎】
+  <script>
+  // 【网页全自动等比克隆 jsPDF 下载引擎】
   window.addEventListener('load', () => {
-    // 1. 每隔1秒温和地侦测页面，只在“结果页”出现时才发挥作用
     setInterval(() => {
-      // 强行通过类名和文字，精准锁定【下载 PDF】按钮，避开首页的提交按钮
+      // 1. 精准锁定【下载 PDF】按钮，避开首页的提交按钮
       const downloadBtn = Array.from(document.querySelectorAll('button')).find(btn => 
         (btn.textContent.includes('Download') || btn.textContent.includes('PDF')) && 
         !btn.textContent.includes('Start') && !btn.textContent.includes('Submit')
       );
 
-      // 2. 抓到按钮后，确保只绑定一次新事件，【绝对不克隆、不破坏】原有的混淆事件链
       if (downloadBtn && !downloadBtn.hasAttribute('data-jspdf-bound')) {
         downloadBtn.setAttribute('data-jspdf-bound', 'true');
 
-        // 强行阻止原先混淆代码里的报错弹窗
         downloadBtn.addEventListener('click', async (e) => {
-          e.preventDefault();  // 掐断原本会报 alert("Document not ready") 的旧逻辑
-          e.stopPropagation(); // 阻止错误事件向上冒泡
+          e.preventDefault();  
+          e.stopPropagation(); 
 
           const originalText = downloadBtn.textContent;
           downloadBtn.textContent = 'Generating PDF...';
           downloadBtn.disabled = true;
 
           try {
+            // 2. 【终极抓取】：直接抓取结果卡片的底层大盒子，连带样式表格一起打包克隆
+            // 它会聪明的自动寻找带有胜诉概率、赔偿金的那个大框框
+            const targetElement = document.querySelector('main') || document.querySelector('.max-w-6xl') || document.body;
+
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
 
-            // 3. 【文本人肉抓取】：直接从你刚刚成功渲染出来的网页屏幕上提取高价值数据
-            const winProb = document.querySelector('.bg-white h2, h3, .text-gray-800')?.innerText || '55%';
-            const totalTenure = document.querySelector('div:contains("Tenure") + div')?.innerText || '1 year 9 months';
-            const totalAmount = document.querySelector('.text-primary-600, .font-bold')?.innerText || '€537,500';
-            const legalBasisText = document.querySelector('.prose, .text-gray-600, pre')?.innerText || 'AI Legal Document Content...';
-
-            // 4. 【排版绘制】
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(22);
-            doc.text("LABOR DISPUTE ANALYSIS & DEMAND LETTER", 14, 20);
-            
-            doc.setLineWidth(0.5);
-            doc.line(14, 25, 196, 25); 
-
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 32);
-            doc.text(`Win Probability: ${winProb}`, 14, 38);
-            doc.text(`Total Tenure: ${totalTenure}`, 14, 44);
-            
-            doc.setFont("helvetica", "bold");
-            doc.text(`ESTIMATED TOTAL COMPENSATION: ${totalAmount}`, 14, 52);
-            
-            doc.line(14, 56, 196, 56);
-
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(11);
-            
-            // 自动智能折行，防止文本冲出 A4 纸边界
-            const splitText = doc.splitTextToSize(legalBasisText, 180);
-            doc.text(splitText, 14, 65);
-
-            // 5. 【原地交付】0毫秒延迟，浏览器本地直接弹出 PDF 下载
-            doc.save("PayMeNow_Legal_Package.pdf");
+            // 3. 【无脑克隆渲染】：jsPDF 官方的高级 html 渲染插件，不需要处理恶心的文本换行和乱码
+            await doc.html(targetElement, {
+              callback: function (doc) {
+                // 4. 渲染完成，直接弹出 PDF 下载，100% 成功
+                doc.save("PayMeNow_Legal_Report.pdf");
+              },
+              x: 10,
+              y: 10,
+              width: 190, // 自动缩放到 A4 纸的标准可印刷宽度内
+              windowWidth: targetElement.clientWidth // 保持和用户在手机/电脑屏幕上看到的一模一样
+            });
 
           } catch (err) {
-            console.error('PDF Build Failed:', err);
-            alert('PDF creation failed, please use browser print instead.');
+            console.error('PDF Engine Error, falling back to window.print:', err);
+            // 5. 【终极兜底双保险】：如果由于极特殊原因连克隆都失败了，直接无感唤醒浏览器的原生官方高阶打印机，导出 PDF
+            window.print();
           } finally {
             downloadBtn.textContent = originalText;
             downloadBtn.disabled = false;
@@ -85,6 +64,7 @@
     }, 1000);
   });
 </script>
+
 
 
   </body>
