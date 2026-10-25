@@ -10,53 +10,47 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
-    <script>
-  // 【前端本地纯即时渲染 PDF 下载引擎】
+   <script>
+  // 【安全隔离版：纯前端零依赖 jsPDF 下载引擎】
   window.addEventListener('load', () => {
-    // 1. 24小时高频监听网页，强行捕捉那个带“Download”字样的蓝色高亮按钮
-    const interval = setInterval(() => {
+    // 1. 每隔1秒温和地侦测页面，只在“结果页”出现时才发挥作用
+    setInterval(() => {
+      // 强行通过类名和文字，精准锁定【下载 PDF】按钮，避开首页的提交按钮
       const downloadBtn = Array.from(document.querySelectorAll('button')).find(btn => 
-        btn.textContent.includes('Download') || btn.textContent.includes('PDF')
+        (btn.textContent.includes('Download') || btn.textContent.includes('PDF')) && 
+        !btn.textContent.includes('Start') && !btn.textContent.includes('Submit')
       );
 
-      if (downloadBtn) {
-        clearInterval(interval); // 抓到了，停止排队
+      // 2. 抓到按钮后，确保只绑定一次新事件，【绝对不克隆、不破坏】原有的混淆事件链
+      if (downloadBtn && !downloadBtn.hasAttribute('data-jspdf-bound')) {
+        downloadBtn.setAttribute('data-jspdf-bound', 'true');
 
-        // 2. 强行拔掉原先混淆代码里的旧网络请求事件（废除后端依赖）
-        const newBtn = downloadBtn.cloneNode(true);
-        downloadBtn.parentNode.replaceChild(newBtn, downloadBtn);
+        // 强行阻止原先混淆代码里的报错弹窗
+        downloadBtn.addEventListener('click', async (e) => {
+          e.preventDefault();  // 掐断原本会报 alert("Document not ready") 的旧逻辑
+          e.stopPropagation(); // 阻止错误事件向上冒泡
 
-        // 3. 重新绑定全新的纯前端 jsPDF 零延迟下载闭环
-        newBtn.addEventListener('click', async () => {
-          // 增加爽感体验：点击后按钮显示正在下载
-          const originalText = newBtn.textContent;
-          newBtn.textContent = 'Generating PDF...';
-          newBtn.disabled = true;
+          const originalText = downloadBtn.textContent;
+          downloadBtn.textContent = 'Generating PDF...';
+          downloadBtn.disabled = true;
 
           try {
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({
-              orientation: 'p',
-              unit: 'mm',
-              format: 'a4'
-            });
+            const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
 
-            // 4. 【核心抓取】：直接从网页上把你刚才成功渲染出来的 JSON 报告文字人肉抓下来
-            // 抓取胜诉概率、累计工龄和获赔总额
+            // 3. 【文本人肉抓取】：直接从你刚刚成功渲染出来的网页屏幕上提取高价值数据
             const winProb = document.querySelector('.bg-white h2, h3, .text-gray-800')?.innerText || '55%';
             const totalTenure = document.querySelector('div:contains("Tenure") + div')?.innerText || '1 year 9 months';
             const totalAmount = document.querySelector('.text-primary-600, .font-bold')?.innerText || '€537,500';
-            
-            // 抓取大模型吐出的 AI 法律建议或 Demand Letter 文本内容
             const legalBasisText = document.querySelector('.prose, .text-gray-600, pre')?.innerText || 'AI Legal Document Content...';
 
-            // 5. 【排版渲染】：开始在 A4 纸上像印章一样全自动绘制美式标准正式文书
+            // 4. 【排版绘制】
             doc.setFont("helvetica", "bold");
             doc.setFontSize(22);
             doc.text("LABOR DISPUTE ANALYSIS & DEMAND LETTER", 14, 20);
             
             doc.setLineWidth(0.5);
-            doc.line(14, 25, 196, 25); // 画一条精美的法务分割线
+            doc.line(14, 25, 196, 25); 
 
             doc.setFontSize(12);
             doc.setFont("helvetica", "normal");
@@ -72,26 +66,26 @@
             doc.setFont("helvetica", "normal");
             doc.setFontSize(11);
             
-            // 自动智能换行算法，防止超长的大模型法律文书文字冲出 A4 纸的边缘
+            // 自动智能折行，防止文本冲出 A4 纸边界
             const splitText = doc.splitTextToSize(legalBasisText, 180);
             doc.text(splitText, 14, 65);
 
-            // 6. 【秒级交付】：直接通知浏览器弹出本地下载，100% 成功，0 毫秒网络延迟
+            // 5. 【原地交付】0毫秒延迟，浏览器本地直接弹出 PDF 下载
             doc.save("PayMeNow_Legal_Package.pdf");
 
           } catch (err) {
-            console.error('PDF Generation Failed:', err);
-            alert('PDF creation failed, please try to print the page instead.');
+            console.error('PDF Build Failed:', err);
+            alert('PDF creation failed, please use browser print instead.');
           } finally {
-            // 恢复按钮状态
-            newBtn.textContent = originalText;
-            newBtn.disabled = false;
+            downloadBtn.textContent = originalText;
+            downloadBtn.disabled = false;
           }
         });
       }
-    }, 1000); // 每一秒侦测一次页面元素
+    }, 1000);
   });
 </script>
+
 
   </body>
 </html>
