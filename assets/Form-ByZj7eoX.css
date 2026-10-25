@@ -1,0 +1,34 @@
+.salary-input[data-v-3c16dd69]{flex:auto!important;width:100%!important;min-width:0!important}input[type=number][data-v-3c16dd69]::-webkit-outer-spin-button{-webkit-appearance:none!important;margin:0!important;display:none!important}input[type=number][data-v-3c16dd69]::-webkit-inner-spin-button{-webkit-appearance:none!important;margin:0!important;display:none!important}input[type=number][data-v-3c16dd69]{-moz-appearance:textfield!important}
+
+/* ========== 终极修复：薪资输入框 ========== */
+/* 1. salary-input 必须占满剩余宽度 */
+.salary-input {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* 2. 隐藏所有可能残留的 number spinner */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+input[type="number"] {
+  -moz-appearance: textfield !important;
+}
+
+/* 3. 薪资行的 flex gap 确保左边输入框优先 */
+.flex.gap-2 input.salary-input {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+/* 4. 强制所有 input 类型文字可见 */
+input.input-field {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+}
