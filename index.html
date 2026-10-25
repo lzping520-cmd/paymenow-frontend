@@ -11,4 +11,20 @@
   <body>
     <div id="app"></div>
   </body>
+  <style>
+  /* 强行穿透 Tailwind 限制，将薪资输入框的包裹层和输入框本身拉长至 100% */
+  input[type="number"], 
+  .flex.items-center.w-full input,
+  select {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* 如果你的薪资输入框外层套了一个控制宽度的 md:w-1/3 或 w-48 类名，用这行强行撑开 */
+  div:has(> input[type="number"]),
+  div:has(> .text-sm:contains("Salary")) {
+    width: 100% !important;
+  }
+</style>
+
 </html>
