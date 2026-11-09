@@ -151,7 +151,8 @@ export default {
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
     contact: 'Contact',
-    refund: 'Refund Policy'
+    refund: 'Refund Policy',
+    donate: 'Buy me a coffee'
   },
   errors: {
     network: 'Network error. Check your connection and try again.',
@@ -161,5 +162,17 @@ export default {
     invalidEmail: 'Please enter a valid email.',
     invalidSalary: 'Salary must be a positive number.',
     noAnalysis: 'No analysis found. Please submit your case first.'
+  },
+  donate: {
+    title: 'Support the project ☕',
+    subtitle: 'This tool is free and open-source. If it helped you win your case, a small coffee would make the developer very happy!',
+    pickAmount: 'Pick an amount',
+    custom: 'Custom amount (EUR)',
+    paypalTitle: 'Quick & secure via PayPal',
+    paypalDesc: 'No PayPal account needed — any credit card works.',
+    payButton: 'Send {amount}',
+    secure: '🔒 Secure checkout · You will NOT be charged again.',
+    cryptoHint: 'Want crypto/WalletPay/QR code? Email support.',
+    thanks: 'Thank you for your support — it keeps this tool free forever!'
   }
 }

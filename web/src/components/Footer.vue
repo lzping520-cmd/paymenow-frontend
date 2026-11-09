@@ -11,6 +11,7 @@
           <a href="mailto:support@legal-ai.example" class="hover:text-primary-600">support@legal-ai.example</a>
         </div>
         <div class="flex flex-wrap gap-x-4 gap-y-1">
+          <router-link to="/donate" class="hover:text-primary-600 font-semibold">☕ {{ t('footer.donate') }}</router-link>
           <router-link to="/language" class="hover:text-primary-600">{{ t('nav.language') }}</router-link>
           <a href="#" class="hover:text-primary-600">{{ t('footer.privacy') }}</a>
           <a href="#" class="hover:text-primary-600">{{ t('footer.terms') }}</a>

@@ -11,6 +11,7 @@ export default {
   document: { title: '你的法律文书', winReport: '胜诉分析报告', demandLetter: '律师催告函', tribunalFiling: '仲裁指南', print: '打印', download: '下载 PDF', sendEmail: '发送到邮箱', backToResult: '← 返回结果', emailSent: '✓ 已发送到你的邮箱', readyToFile: '这些文书已经可以直接提交给当地劳动仲裁委/法院。' },
   lawyer: { title: '联系真人律师', sub: '金额超过 3 万元的案件通常需要律师代理', email: '📧 如需帮助请发邮件至', emailTip: '点击可一键复制，24 小时内回复', contact: '联系方式', emailUs: '发送邮件', emailValue: 'support@legal-ai.example', note: '请注明公司名称、入职离职日期、月薪和遇到的问题，方便快速评估。' },
   language: { title: '选择语言', subtitle: '所有法律分析会根据你所在国家的劳动法规自动调整', english: '英语', spanish: '西班牙语', french: '法语', german: '德语', italian: '意大利语', chinese: '中文', current: '当前', saved: '✓ 语言已保存' },
-  footer: { tagline: 'AI 劳动维权助手不能替代持证律师的意见。', privacy: '隐私政策', terms: '服务条款', contact: '联系我们', refund: '退款政策' },
-  errors: { network: '网络错误，请检查连接后重试。', server: '服务器暂时不可用，请稍后重试。', paypal: 'PayPal 返回错误，请换其他支付方式。', empty: '请填写必填项。', invalidEmail: '邮箱格式不正确。', invalidSalary: '工资必须是正数。', noAnalysis: '暂无分析结果，请先提交案件。' }
+  footer: { tagline: 'AI 劳动维权助手不能替代持证律师的意见。', privacy: '隐私政策', terms: '服务条款', contact: '联系我们', refund: '退款政策', donate: '请作者喝杯咖啡' },
+  errors: { network: '网络错误，请检查连接后重试。', server: '服务器暂时不可用，请稍后重试。', paypal: 'PayPal 返回错误，请换其他支付方式。', empty: '请填写必填项。', invalidEmail: '邮箱格式不正确。', invalidSalary: '工资必须是正数。', noAnalysis: '暂无分析结果，请先提交案件。' },
+  donate: { title: '支持这个项目 ☕', subtitle: '这个工具完全免费开源。如果帮到你了，请作者喝杯咖啡吧！', pickAmount: '选个金额', custom: '自定义金额 (EUR)', paypalTitle: 'PayPal 快速安全支付', paypalDesc: '无需 PayPal 账号 — 任意信用卡都可以。', payButton: '支付 {amount}', secure: '🔒 安全支付 · 不会重复扣费。', cryptoHint: '想用加密货币/微信/支付宝？发邮件给我。', thanks: '感谢你的支持 — 让这个工具一直免费下去！' }
 }

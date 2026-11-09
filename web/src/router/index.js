@@ -6,6 +6,7 @@ export const routes = [
   { path: '/analyzing', name: 'analyzing', component: () => import('../pages/Analyzing.vue'), meta: { title: 'analyzing.title' } },
   { path: '/result', name: 'result', component: () => import('../pages/Result.vue'), meta: { title: 'result.title' } },
   { path: '/pay', name: 'pay', component: () => import('../pages/Pay.vue'), meta: { title: 'pay.choosePlan' } },
+  { path: '/donate', name: 'donate', component: () => import('../pages/Donate.vue'), meta: { title: 'donate.title' } },
   { path: '/document', name: 'document', component: () => import('../pages/Document.vue'), meta: { title: 'document.title' } },
   { path: '/lawyer', name: 'lawyer', component: () => import('../pages/Lawyer.vue'), meta: { title: 'lawyer.title' } },
   { path: '/language', name: 'language', component: () => import('../pages/Language.vue'), meta: { title: 'language.title' } },
